@@ -65,6 +65,10 @@
   </div>
 
   <div id="result"></div>
+  <div id="codeBox" style="display:none; margin-top:20px;">
+    <input id="codeInput" type="password" placeholder="Enter code" style="padding:12px; font-size:16px; border-radius:10px; border:1px solid #ccc; width:100%; max-width:260px;">
+    <button onclick="checkCode()" style="margin-top:12px; background:#111; color:white;">Continue</button>
+  </div>
 </div>
 
 <script>
@@ -80,6 +84,17 @@
   function badChoice() {
     hideButtons();
     document.getElementById('result').innerText = "You are a bad girl, you are not ready";
+    document.getElementById('codeBox').style.display = 'block';
+  }
+
+  function checkCode() {
+    const code = document.getElementById('codeInput').value;
+    if (code === 'notred') {
+      document.getElementById('codeBox').style.display = 'none';
+      document.getElementById('result').innerText = "Code accepted. You may continue.";
+    } else {
+      document.getElementById('result').innerText = "Wrong code. Try again.";
+    }
   }
 </script>
 
